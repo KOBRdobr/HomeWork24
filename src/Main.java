@@ -19,22 +19,18 @@ public class Main {
         strSet.add("spoon");
         strSet.add("!");
         strSet.add("dude");
+        System.out.println(strSet.toString());
         System.out.println(removeEvenLength(strSet).toString());
 
     }
 
     private static Set<String> removeEvenLength(Set<String> strSet) {
-        String[] arr = strSet.toArray(new String[strSet.size()]);
-        for (int i = 0; i < arr.length; i++) {
-            if((arr[i].length() % 2) == 0) {
-                for(int j = 0; j < strSet.size(); j++) {
-                    if(strSet.contains(arr[i])) {
-                        strSet.remove(arr[i]);
-                    }
-                }
+
+        for(Iterator<String> iter = strSet.iterator(); iter.hasNext();) {
+            if((iter.next().toString().length() % 2) == 0) {
+                iter.remove();
             }
         }
-        return strSet;
-
+        return  strSet;
     }
 }
